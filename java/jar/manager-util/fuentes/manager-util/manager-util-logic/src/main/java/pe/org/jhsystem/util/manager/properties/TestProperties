@@ -1,0 +1,16 @@
+ManagerProperties managerProperties = new ManagerProperties("c:/demo.properties");
+String dato1="", dato2="", dato3="";
+String sError = "0000";
+try {
+    dato1 = managerProperties.getProperty("demo.uno");
+    dato2 = managerProperties.getProperty("demo.dos");
+    dato3 = managerProperties.getProperty("demo.tres");
+} catch (PropertiesException ex) {
+    sError="9999";
+    System.err.println(ManagerTrace.PilaToString(ex));
+}
+if(sError.equals("0000")){
+    System.out.println("dato1:"+dato1);
+    System.out.println("dato2:"+dato2);
+    System.out.println("dato3:"+dato3);
+}
