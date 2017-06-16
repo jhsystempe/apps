@@ -1,0 +1,91 @@
+<div id="page_content_inner">
+    <h4 class="heading_a uk-margin-bottom">Reporte Semanal</h4>
+    <div class="md-card uk-margin-medium-bottom">
+        <div class="md-card-content">
+            <table id="example" class="uk-table" cellspacing="0" width="100%"></table>
+        </div>
+    </div>
+</div>
+<script>
+$(document).ready(function() {
+
+$(function() {
+    altair_datatables.dt_tableTools()
+}), altair_datatables = {
+    dt_tableTools: function() {
+        var t = $("#example");
+        if (t.length) {
+            var a = t.DataTable({
+                language: {
+                    lengthMenu: '_MENU_ items por página',
+                    sSearch:         "Buscar:",
+                    sZeroRecords:    "No se encontraron resultados",
+                    sEmptyTable:     "Ningún dato disponible en esta tabla",
+                    sInfo:           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    sInfoEmpty:      "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    sInfoFiltered:   "(filtrado de un total de _MAX_ registros)",
+                    sLoadingRecords: "Cargando...",
+                    oAria: {
+                        sSortAscending:  ": Activar para ordenar la columna de manera ascendente",
+                        sSortDescending: ": Activar para ordenar la columna de manera descendente"
+                    },
+                    paginate: {
+                        previous: '<i class="fa fa-angle-left"></i>',
+                        next: '<i class="fa fa-angle-right"></i>'
+                    }
+                },
+                aoColumns: [
+                        { sTitle: 'id' },
+                        { sTitle: 'caso' },
+                        { sTitle: 'ficha' },
+                        { sTitle: 'correlativo_pac' },
+                        { sTitle: 'usuario' },
+                        { sTitle: 'rol' },
+                        { sTitle: 'correo' },
+                        { sTitle: 'proceso' },
+                        { sTitle: 'solicitud' },
+                        { sTitle: 'tramite_tipo' },
+                        { sTitle: 'solicitante' },
+                        { sTitle: 'solitante <br> edad' },
+                        { sTitle: 'solitante <br> tipo doc' },
+                        { sTitle: 'solitante <br> doccumento' },
+                        { sTitle: 'solitante <br> direccion' },
+                        { sTitle: 'solitante <br> teléfono' },
+                        { sTitle: 'solitante <br> celular' },
+                        { sTitle: 'solitante <br> correo' },
+                        { sTitle: 'afectado' },
+                        { sTitle: 'afectado <br> tipo documento' },
+                        { sTitle: 'afectado <br> documento' },
+                        { sTitle: 'detalle' },
+                        { sTitle: 'ipress <br> id' },
+                        { sTitle: 'ipress <br> nombre' },
+                        { sTitle: 'ipress <br> ubigeo' },
+                        { sTitle: 'ipress <br> naturaleza' },
+                        { sTitle: 'fecha <br> registro' },
+                        { sTitle: 'fecha <br> ocurrencia' },
+                        { sTitle: 'hecho <br> vulneratorio <br> clase' },
+                        { sTitle: 'hecho <br> vulneratorio' },
+                        { sTitle: 'hecho <br> vulneratorio <br> descripcion' },
+                        { sTitle: 'fecha <br> inicio' },
+                        { sTitle: 'fecha <br> ultima' },
+                        { sTitle: 'estado' }
+                ],
+                ajax: "http://192.168.50.47/webservice/rest/ws/pac/reportes/test.php"
+            }),
+                e = new $.fn.dataTable.TableTools(a, {
+                    sSwfPath: "bower_components/datatables-tabletools/swf/copy_csv_xls.swf",
+                    aButtons:        [ "copy", "csv", "xls", "print" ]
+                });
+            $(e.fnContainer()).insertBefore(t.closest(".dt-uikit").find(".dt-uikit-header")), $body.on("click", function(t) {
+                if ($body.hasClass("DTTT_Print") && !$(t.target).closest(".DTTT").length && !$(t.target).closest(".uk-table").length) {
+                    var a = $.Event("keydown", {
+                        keyCode: 27
+                    });
+                    $body.trigger(a)
+                }
+            })
+        }
+    }
+};
+} );
+</script>

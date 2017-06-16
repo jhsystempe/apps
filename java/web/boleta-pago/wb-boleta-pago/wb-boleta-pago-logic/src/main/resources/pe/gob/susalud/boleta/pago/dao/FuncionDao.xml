@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper  namespace="pe.gob.susalud.boleta.pago.dao.FuncionDao">
+    
+    <resultMap id="funcionResult" type="pe.gob.susalud.boleta.pago.model.Funcion"> 
+        <result column="ANIO" property="anio" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="selAnio" useCache="false"  resultMap = "funcionResult" statementType="CALLABLE">    
+        { CALL SEPSSIGA.dbo.BDI_SP_FUNCIONES () } 
+    </select>
+               
+</mapper>

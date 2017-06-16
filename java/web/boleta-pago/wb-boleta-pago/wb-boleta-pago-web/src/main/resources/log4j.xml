@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd" >
+<log4j:configuration>
+    <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">   
+        <param name="Target" value="System.out"/>   
+        <param name="Threshold" value="DEBUG"/>
+        <layout class="org.apache.log4j.PatternLayout">   
+            <param name="ConversionPattern" value="%d{ISO8601} [%-5p] [%c{1}] [%l] %m%n"/>
+        </layout>
+    </appender>
+    <appender name="DIARIO" class="org.apache.log4j.DailyRollingFileAppender">   
+        <!--<param name="File" value="E:/data/wb-boleta-pago/logs/wb-boleta-digital.log"/>-->
+        <param name="File" value="/data/wb-boleta-pago/logs/wb-boleta-digital.log"/>
+        <param name="Append" value="false"/>
+        <param name="Threshold" value="DEBUG"/>
+        <param name="DatePattern" value="'.'yyyy-MM-dd"/>
+        <layout class="org.apache.log4j.PatternLayout">   
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} [%-5p] [%c] %m%n"/>
+        </layout>   
+    </appender>
+    <category name="org.springframework">
+        <priority value="INFO"/>
+    </category>
+    <category name="org.apache.ibatis">
+        <priority value="INFO"/>
+    </category>
+    <category name="net.sf.jasperreports">
+        <priority value="DEBUG"/>
+    </category>
+    <category name="org.mybatis">
+        <priority value="INFO"/>
+    </category>
+    <root>
+        <priority value="DEBUG"></priority>
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="DIARIO"/>
+    </root>
+</log4j:configuration> 

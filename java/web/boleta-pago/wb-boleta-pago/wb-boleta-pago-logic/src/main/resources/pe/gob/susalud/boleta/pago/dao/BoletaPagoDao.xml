@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper  namespace="pe.gob.susalud.boleta.pago.dao.BoletaPagoDao">
+    
+    <resultMap id="boletaResult" type="pe.gob.susalud.boleta.pago.model.BoletaPago"> 
+        <result column="idRegistro" property="idRegistro" jdbcType="VARCHAR"/>
+        <result column="idBoleta" property="idBoleta" jdbcType="VARCHAR"/>
+        <result column="deRegimen" property="deRegimen" jdbcType="VARCHAR"/>
+        <result column="noServidor" property="noServidor" jdbcType="VARCHAR"/>
+        <result column="nuDocumento" property="nuDocumento" jdbcType="VARCHAR"/>
+        <result column="deCargo" property="deCargo" jdbcType="VARCHAR"/>
+        <result column="tiCondicion" property="tiCondicion" jdbcType="VARCHAR"/>
+        <result column="deDependencia" property="deDependencia" jdbcType="VARCHAR"/>
+        <result column="noSueldo" property="noSueldo" jdbcType="VARCHAR"/>
+        <result column="deSueldo" property="deSueldo" jdbcType="VARCHAR"/>
+        <result column="feIngreso" property="feIngreso" jdbcType="VARCHAR"/>
+        <result column="noAfp" property="noAfp" jdbcType="VARCHAR"/>
+        <result column="noEps" property="noEps" jdbcType="VARCHAR"/>
+        <result column="coAfiliacion" property="coAfiliacion" jdbcType="VARCHAR"/>
+        <result column="dePeriodo" property="dePeriodo" jdbcType="VARCHAR"/>
+        <result column="nuEssalud" property="nuEssalud" jdbcType="VARCHAR"/>
+        <result column="nuCuenta" property="nuCuenta" jdbcType="VARCHAR"/>
+        <result column="noBanco" property="noBanco" jdbcType="VARCHAR"/>
+        <result column="nuDias" property="nuDias" jdbcType="VARCHAR"/>
+        <result column="nuHoras" property="nuHoras" jdbcType="VARCHAR"/>
+        <result column="fePago" property="fePago" jdbcType="VARCHAR"/>
+        <result column="toIngresos" property="toIngresos" jdbcType="VARCHAR"/>
+        <result column="toEgresos" property="toEgresos" jdbcType="VARCHAR"/>
+        <result column="toNeto" property="toNeto" jdbcType="VARCHAR"/>
+        <result column="deMonto" property="deMonto" jdbcType="VARCHAR"/>
+        <result column="deIngresos" property="deIngresos" jdbcType="VARCHAR"/>
+        <result column="deEgresos" property="deEgresos" jdbcType="VARCHAR"/>
+        <result column="deAportaciones" property="deAportaciones" jdbcType="VARCHAR"/>        
+    </resultMap>
+
+    <select id="obtenerBoleta" useCache="false"  resultMap = "boletaResult" statementType="CALLABLE">
+        { CALL SEPSSIGA.dbo.BDI_SP_GENERAR_BOLETA
+            (
+                #{pTipoPlan, jdbcType = VARCHAR, mode = IN},
+                #{pSubTipoPlan, jdbcType = VARCHAR, mode = IN},
+                #{pPerAnio, jdbcType = VARCHAR, mode = IN},
+                #{pPerMes, jdbcType = VARCHAR, mode = IN},
+              <!-- #{pCodiEmpl, jdbcType = VARCHAR, mode = IN},-->
+                #{pFlagAnulado, jdbcType = VARCHAR, mode = IN}
+            )
+        } 
+    </select>
+    
+    <select id="actualizarBoleta" useCache="false"  parameterType = "pe.gob.susalud.boleta.pago.model.ActualizaBoleta" statementType="CALLABLE">
+        { CALL SEPSSIGA.dbo.BDI_SP_ACTUALIZA_BOLETA
+            (
+                #{pRegistro1, jdbcType = VARCHAR, mode = IN},
+                #{pRegistro2, jdbcType = VARCHAR, mode = IN},
+                #{pRuta, jdbcType = VARCHAR, mode = IN},
+                #{pIndicador, jdbcType = VARCHAR, mode = IN}
+            )
+        } 
+    </select>
+           
+</mapper>

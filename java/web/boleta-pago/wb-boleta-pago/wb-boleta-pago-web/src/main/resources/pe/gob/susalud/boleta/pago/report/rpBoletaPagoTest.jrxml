@@ -1,0 +1,706 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="BoletaPago" pageWidth="421" pageHeight="595" columnWidth="371" leftMargin="25" rightMargin="25" topMargin="20" bottomMargin="20">
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<subDataset name="datasetAportacion">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="apConcepto" class="java.lang.String">
+			<fieldDescription><![CDATA[apConcepto]]></fieldDescription>
+		</field>
+		<field name="apMonto" class="java.lang.String">
+			<fieldDescription><![CDATA[apMonto]]></fieldDescription>
+		</field>
+	</subDataset>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["E:\\apps\\java\\ireport\\ReporteBoletaPago\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pLogo" class="java.lang.String">
+		<defaultValueExpression><![CDATA["E:/apps/java/ireport/susalud_logo.png"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pFirma" class="java.lang.String">
+		<defaultValueExpression><![CDATA["E:/apps/java/ireport/susalud_firma.png"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="toIngresos" class="java.lang.String">
+		<fieldDescription><![CDATA[toIngresos]]></fieldDescription>
+	</field>
+	<field name="aIngreso" class="java.util.ArrayList">
+		<fieldDescription><![CDATA[aIngreso]]></fieldDescription>
+	</field>
+	<field name="feIngreso" class="java.lang.String">
+		<fieldDescription><![CDATA[feIngreso]]></fieldDescription>
+	</field>
+	<field name="deCargo" class="java.lang.String">
+		<fieldDescription><![CDATA[deCargo]]></fieldDescription>
+	</field>
+	<field name="nuDias" class="java.lang.String">
+		<fieldDescription><![CDATA[nuDias]]></fieldDescription>
+	</field>
+	<field name="noServidor" class="java.lang.String">
+		<fieldDescription><![CDATA[noServidor]]></fieldDescription>
+	</field>
+	<field name="aEgreso" class="java.util.ArrayList">
+		<fieldDescription><![CDATA[aEgreso]]></fieldDescription>
+	</field>
+	<field name="noEps" class="java.lang.String">
+		<fieldDescription><![CDATA[noEps]]></fieldDescription>
+	</field>
+	<field name="toEgresos" class="java.lang.String">
+		<fieldDescription><![CDATA[toEgresos]]></fieldDescription>
+	</field>
+	<field name="noSueldo" class="java.lang.String">
+		<fieldDescription><![CDATA[noSueldo]]></fieldDescription>
+	</field>
+	<field name="fePago" class="java.lang.String">
+		<fieldDescription><![CDATA[fePago]]></fieldDescription>
+	</field>
+	<field name="deSueldo" class="java.lang.String">
+		<fieldDescription><![CDATA[deSueldo]]></fieldDescription>
+	</field>
+	<field name="noAfp" class="java.lang.String">
+		<fieldDescription><![CDATA[noAfp]]></fieldDescription>
+	</field>
+	<field name="coAfiliacion" class="java.lang.String">
+		<fieldDescription><![CDATA[coAfiliacion]]></fieldDescription>
+	</field>
+	<field name="deMonto" class="java.lang.String">
+		<fieldDescription><![CDATA[deMonto]]></fieldDescription>
+	</field>
+	<field name="deRegimen" class="java.lang.String">
+		<fieldDescription><![CDATA[deRegimen]]></fieldDescription>
+	</field>
+	<field name="nuHoras" class="java.lang.String">
+		<fieldDescription><![CDATA[nuHoras]]></fieldDescription>
+	</field>
+	<field name="tiCondicion" class="java.lang.String">
+		<fieldDescription><![CDATA[tiCondicion]]></fieldDescription>
+	</field>
+	<field name="nuCuenta" class="java.lang.String">
+		<fieldDescription><![CDATA[nuCuenta]]></fieldDescription>
+	</field>
+	<field name="nuEssalud" class="java.lang.String">
+		<fieldDescription><![CDATA[nuEssalud]]></fieldDescription>
+	</field>
+	<field name="dePeriodo" class="java.lang.String">
+		<fieldDescription><![CDATA[dePeriodo]]></fieldDescription>
+	</field>
+	<field name="idBoleta" class="java.lang.String">
+		<fieldDescription><![CDATA[idBoleta]]></fieldDescription>
+	</field>
+	<field name="deDependencia" class="java.lang.String">
+		<fieldDescription><![CDATA[deDependencia]]></fieldDescription>
+	</field>
+	<field name="aAportacion" class="java.util.ArrayList">
+		<fieldDescription><![CDATA[aAportacion]]></fieldDescription>
+	</field>
+	<field name="toNeto" class="java.lang.String">
+		<fieldDescription><![CDATA[toNeto]]></fieldDescription>
+	</field>
+	<field name="noBanco" class="java.lang.String">
+		<fieldDescription><![CDATA[noBanco]]></fieldDescription>
+	</field>
+	<field name="nuDocumento" class="java.lang.String">
+		<fieldDescription><![CDATA[nuDocumento]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="68" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement x="0" y="0" width="371" height="67"/>
+			</rectangle>
+			<staticText>
+				<reportElement key="staticText-2" x="70" y="26" width="239" height="16"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="9" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[BOLETA DE PAGO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-3" x="309" y="10" width="17" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Nro:]]></text>
+			</staticText>
+			<image>
+				<reportElement x="8" y="8" width="61" height="52"/>
+				<imageExpression class="java.lang.String"><![CDATA[$P{pLogo}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement key="staticText-1" x="70" y="7" width="239" height="16"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<text><![CDATA[SUPERINTENDENCIA NACIONAL DE SALUD]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="70" y="46" width="239" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{deRegimen}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="326" y="10" width="41" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{idBoleta}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="119" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement x="0" y="0" width="371" height="118"/>
+			</rectangle>
+			<staticText>
+				<reportElement key="staticText-6" x="5" y="22" width="49" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Cargo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-7" x="5" y="38" width="49" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Dependencia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-8" x="250" y="6" width="63" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[D.N.I.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-9" x="250" y="22" width="63" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Condicion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-11" x="54" y="7" width="5" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-12" x="54" y="22" width="5" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-13" x="54" y="38" width="5" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-15" x="314" y="6" width="5" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-16" x="314" y="22" width="5" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-17" x="314" y="38" width="5" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-23" x="5" y="56" width="57" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Fecha Ingreso]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-24" x="5" y="68" width="57" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[A.F.P.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-25" x="5" y="80" width="57" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[E.P.S.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-26" x="5" y="92" width="57" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Cod. Afiliación]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-27" x="5" y="104" width="57" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Periodo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-28" x="62" y="56" width="5" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-29" x="62" y="104" width="5" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-30" x="62" y="92" width="5" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-31" x="62" y="80" width="5" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-32" x="62" y="68" width="5" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-36" x="202" y="56" width="57" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ESSALUD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-37" x="202" y="68" width="57" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NRO. CTA.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-38" x="202" y="80" width="57" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BANCO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-39" x="202" y="92" width="57" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIAS TRAB.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-40" x="202" y="104" width="57" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de Pago]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-41" x="259" y="56" width="5" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-42" x="259" y="68" width="5" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-43" x="259" y="80" width="5" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-44" x="259" y="92" width="5" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-45" x="259" y="104" width="5" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-51" x="288" y="92" width="41" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[HRS.TRAB.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-52" x="329" y="92" width="5" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-5" x="5" y="7" width="49" height="11" isRemoveLineWhenBlank="true" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Servidor]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="53" width="368" height="1"/>
+			</line>
+			<textField>
+				<reportElement x="59" y="7" width="177" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{noServidor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="321" y="6" width="46" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{nuDocumento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="59" y="22" width="177" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{deCargo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="321" y="22" width="46" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tiCondicion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="59" y="38" width="177" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{deDependencia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="321" y="38" width="46" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{deSueldo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="67" y="56" width="100" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{feIngreso}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="67" y="68" width="100" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{noAfp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="67" y="80" width="100" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{noEps}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="67" y="92" width="100" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{coAfiliacion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="67" y="104" width="100" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{dePeriodo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="264" y="56" width="100" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{nuEssalud}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="264" y="68" width="100" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{nuCuenta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="264" y="80" width="100" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{noBanco}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="264" y="92" width="22" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{nuDias}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="334" y="92" width="30" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{nuHoras}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="264" y="104" width="100" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{fePago}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="250" y="38" width="63" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{noSueldo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="270">
+			<rectangle radius="10">
+				<reportElement mode="Transparent" x="0" y="0" width="371" height="269"/>
+			</rectangle>
+			<subreport>
+				<reportElement x="189" y="2" width="179" height="169"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{aEgreso})]]></dataSourceExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "rpBoletaPagoTest_egreso.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="3" y="173" width="179" height="95"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{aAportacion})]]></dataSourceExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "rpBoletaPagoTest_aportacion.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement key="staticText-60" x="212" y="193" width="82" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[TOTAL INGRESOS]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="301" y="226" width="56" height="11"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{toNeto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="301" y="193" width="56" height="11"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{toIngresos}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="staticText-63" x="295" y="208" width="5" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-66" x="212" y="226" width="82" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[NETO A PAGAR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-67" x="295" y="226" width="5" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-61" x="295" y="193" width="5" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="301" y="208" width="56" height="11"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{toEgresos}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="staticText-62" x="212" y="208" width="82" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[TOTAL EGRESOS]]></text>
+			</staticText>
+			<elementGroup>
+				<subreport>
+					<reportElement x="3" y="2" width="179" height="169"/>
+					<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{aIngreso})]]></dataSourceExpression>
+					<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "rpBoletaPagoTest_ingreso.jasper"]]></subreportExpression>
+				</subreport>
+			</elementGroup>
+			<line>
+				<reportElement key="line-2" x="0" y="15" width="371" height="1"/>
+			</line>
+			<line>
+				<reportElement key="line-2" x="0" y="27" width="371" height="1"/>
+			</line>
+			<line>
+				<reportElement x="185" y="0" width="1" height="269"/>
+			</line>
+			<line>
+				<reportElement key="line-2" x="0" y="172" width="371" height="1"/>
+			</line>
+			<line>
+				<reportElement key="line-2" x="0" y="187" width="185" height="1"/>
+			</line>
+			<line>
+				<reportElement key="line-2" x="0" y="200" width="185" height="1"/>
+			</line>
+			<line>
+				<reportElement key="line-5" x="137" y="15" width="1" height="157"/>
+			</line>
+			<line>
+				<reportElement key="line-5" x="322" y="15" width="1" height="157"/>
+			</line>
+			<line>
+				<reportElement key="line-5" x="138" y="188" width="1" height="81"/>
+			</line>
+			<rectangle>
+				<reportElement key="rectangle-6" mode="Transparent" x="208" y="224" width="154" height="14"/>
+			</rectangle>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="96" splitType="Stretch">
+			<rectangle radius="5">
+				<reportElement x="0" y="15" width="371" height="68"/>
+			</rectangle>
+			<staticText>
+				<reportElement key="staticText-87" x="188" y="70" width="179" height="11"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FIRMA DEL SERVIDOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="188" y="83" width="179" height="11"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font fontName="SansSerif" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SERVIDOR]]></text>
+			</staticText>
+			<rectangle radius="5">
+				<reportElement x="0" y="0" width="371" height="14"/>
+			</rectangle>
+			<staticText>
+				<reportElement key="staticText-84" x="6" y="2" width="27" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[SON :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-86" x="3" y="70" width="179" height="11"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FIRMA SUSALUD]]></text>
+			</staticText>
+			<line>
+				<reportElement x="185" y="15" width="1" height="68"/>
+			</line>
+			<textField>
+				<reportElement x="33" y="2" width="328" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{deMonto}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="68" width="371" height="1"/>
+			</line>
+			<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="31" y="16" width="134" height="52" backcolor="#FFFFFF"/>
+				<imageExpression class="java.lang.String"><![CDATA[$P{pFirma}]]></imageExpression>
+			</image>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="1" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

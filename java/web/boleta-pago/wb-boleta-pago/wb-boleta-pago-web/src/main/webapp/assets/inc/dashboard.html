@@ -1,0 +1,99 @@
+        <div id="page_content_inner">
+
+            <h3 class="heading_b uk-margin-bottom">Dahsboard</h3>
+
+            <h4 class="heading_a uk-margin-bottom">Detalles</h4>
+            <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-1-1">
+                    <div class="md-card">
+                        <div class="md-card-toolbar">
+                            <h3 class="md-card-toolbar-heading-text">
+                                Procesos
+                            </h3>
+                        </div>
+                        <div class="md-card-content">
+                            <div class="uk-grid" data-uk-grid-margin>
+                                <div class="uk-width-medium-1-1">
+                                    <div id="dashboard-1" style="min-width: 310px; height: 400px; max-width: 100%; margin: 0 auto"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--
+            <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-medium-1-2">
+                    <div class="md-card">
+                        <div class="md-card-content">
+                            <div id="mg_chart_confidence_band" class="mGraph"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="uk-width-medium-1-2">
+                    <div class="md-card">
+                        <div class="md-card-content">
+                            <div id="mg_chart_currency" class="mGraph"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            -->
+
+        </div>
+<script>
+$(function () {
+    $('#dashboard-1').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: ''
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series: [{
+            name: "Brands",
+            colorByPoint: true,
+            data: [{
+                name: "Microsoft Internet Explorer",
+                y: 56.33
+            }, {
+                name: "Chrome",
+                y: 24.03,
+                sliced: true,
+                selected: true
+            }, {
+                name: "Firefox",
+                y: 10.38
+            }, {
+                name: "Safari",
+                y: 4.77
+            }, {
+                name: "Opera",
+                y: 0.91
+            }, {
+                name: "Proprietary or Undetectable",
+                y: 0.2
+            }]
+        }]
+    });
+});
+</script>

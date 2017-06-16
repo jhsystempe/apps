@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper  namespace="pe.gob.susalud.boleta.pago.dao.PersonalDao">
+    
+    <resultMap id="personalResult" type="pe.gob.susalud.boleta.pago.model.Personal"> 
+        <result column="CO_EMPLEADO" property="coEmpleado" jdbcType="VARCHAR"/>
+        <result column="TI_DOCUEMENTO" property="tiDocumento" jdbcType="VARCHAR"/>
+        <result column="NU_DOCUMENTO" property="nuDocumento" jdbcType="VARCHAR"/>
+        <result column="NO_EMPLEADO" property="noEmpleado" jdbcType="VARCHAR"/>
+        <result column="ES_DESCARGA" property="esDescarga" jdbcType="VARCHAR"/>
+        <result column="FE_DESCARGA" property="feDescarga" jdbcType="VARCHAR"/>        
+        <result column="RUTA_ARCHIVO" property="rutaArchivo" jdbcType="VARCHAR"/>
+        <result column="NU_SECUENCIAL" property="nuSecuencial" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="consultarPersonalList" useCache="false"  resultMap = "personalResult" statementType="CALLABLE">
+        { CALL SEPSSIGA.dbo.BDI_SP_CONSULTA_PERSONAL
+            (
+                #{pNuDni, jdbcType = VARCHAR, mode = IN},
+                #{pPerAnio, jdbcType = VARCHAR, mode = IN},
+                #{pPerMes, jdbcType = VARCHAR, mode = IN},
+                #{pFlagAnulado, jdbcType = VARCHAR, mode = IN}
+            )
+        } 
+    </select>
+           
+    <select id="updFechaDescarga" flushCache="true" parameterType="String">
+        { CALL SEPSSIGA.dbo.BDI_SP_ACTUALIZA_BOLETA_DESCARGA
+            (
+                #{nuSecuencial, jdbcType = VARCHAR, mode = IN}
+            )
+        } 
+    </select>
+    
+    <select id="consultarPersonalDetalle" useCache="false"  resultMap = "personalResult" statementType="CALLABLE">
+        { CALL SEPSSIGA.dbo.BDI_SP_CONSULTA_PERSONAL_TEST
+            (
+                #{pNuDni, jdbcType = VARCHAR, mode = IN},
+                #{pPerAnio, jdbcType = VARCHAR, mode = IN},
+                #{pPerMes, jdbcType = VARCHAR, mode = IN},
+                #{pFlagAnulado, jdbcType = VARCHAR, mode = IN},
+                #{pFlagDescargado, jdbcType = VARCHAR, mode = IN},
+                #{pFlagGenerado, jdbcType = VARCHAR, mode = IN}
+            )
+        } 
+    </select>
+               
+</mapper>

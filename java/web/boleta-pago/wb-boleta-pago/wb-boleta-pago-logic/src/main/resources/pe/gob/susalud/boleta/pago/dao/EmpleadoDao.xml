@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper  namespace="pe.gob.susalud.boleta.pago.dao.EmpleadoDao">
+    
+    <resultMap id="consultaPersonal" type="pe.gob.susalud.boleta.pago.model.Empleado"> 
+        <result column="CO_EMPLEADO" property="coEmpleado" jdbcType="VARCHAR"/>
+        <result column="NO_EMPLEADO" property="noEmpleado" jdbcType="VARCHAR"/>
+        <result column="TI_DOC_EMPLEADO" property="tiDocEmpleado" jdbcType="VARCHAR"/>
+        <result column="NU_DOC_EMPLEADO" property="nuDocEmpleado" jdbcType="VARCHAR"/>
+        <result column="ES_EMPLEADO" property="esEmpleado" jdbcType="VARCHAR"/>
+        <result column="US_EMPLEADO" property="usEmpleado" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="obtenerEmpleado" useCache="false"  resultMap = "consultaPersonal" statementType="CALLABLE">
+        { CALL SEPSSIGA.dbo.BDI_SP_DATOS_PERSONAL
+            (
+                #{pUsuario, jdbcType = VARCHAR, mode = IN}
+            )
+        } 
+    </select>
+           
+</mapper>

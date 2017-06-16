@@ -1,0 +1,15 @@
+table tr th, table tr td{
+	font-size: 12px !important;
+}
+table tr th{
+	text-transform: uppercase;
+}
+#sidebar_main .menu_section>ul>li ul li.menu_subtitle {
+    font-weight: 500;
+    font-size: 13px;
+    color: #aaa;
+    padding: 16px 0 4px 72px;
+}
+#sidebar_main .sidebar_main_header .sidebar_logo {
+    height: auto;
+}

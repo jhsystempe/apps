@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper  namespace="pe.gob.susalud.boleta.pago.dao.AdministradorDao">
+    
+    <resultMap id="consultaResult" type="pe.gob.susalud.boleta.pago.model.Administrador"> 
+        <result column="ANIO" property="deAnio" jdbcType="VARCHAR"/>
+        <result column="MES" property="dePeriodo" jdbcType="VARCHAR"/>
+        <result column="ID_TIPO_PLANILLA" property="tiPlanilla" jdbcType="VARCHAR"/>
+        <result column="DE_TIPO_PLANILLA" property="dePlanilla" jdbcType="VARCHAR"/>
+        <result column="ID_SUBTIP_PLANILLA" property="suTiPlanilla" jdbcType="VARCHAR"/>
+        <result column="DE_SUBTIP_PLANILLA" property="deSubPlanilla" jdbcType="VARCHAR"/>
+        <result column="NRO_PERSONAL" property="total" jdbcType="VARCHAR"/>
+        <result column="SIN_PROCESA" property="noProcesa" jdbcType="VARCHAR"/>
+        <result column="PROCESADOS" property="siProcesa" jdbcType="VARCHAR"/>
+        <result column="SIN_DESCARGA" property="noDescarga" jdbcType="VARCHAR"/>
+        <result column="DESCARGADOS" property="siDescarga" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="consultarProcesoList" useCache="false"  resultMap = "consultaResult" statementType="CALLABLE">
+        { CALL SEPSSIGA.dbo.BDI_SP_CONSULTA_ADMINISTRADOR
+            (
+                #{pPerAnio, jdbcType = VARCHAR, mode = IN},
+                #{pPerMes, jdbcType = VARCHAR, mode = IN},
+                #{pFlagAnulado, jdbcType = VARCHAR, mode = IN}
+                <!--#{pFlagDescargado, jdbcType = VARCHAR, mode = IN},-->
+                <!--#{pFlagGenerado, jdbcType = VARCHAR, mode = IN}-->
+            )
+        } 
+    </select>
+    
+       
+<!--        
+    { CALL SEPSSIGA.dbo.BDI_SP_CONSULTA('2016', '02', 'N')}
+-->           
+</mapper>
